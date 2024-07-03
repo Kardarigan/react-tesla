@@ -1,0 +1,204 @@
+.heroSplide {
+  .splide {
+    height: 100%;
+
+    &__slide {
+      @apply flex md:flex-row flex-col-reverse justify-center;
+
+      .slide {
+        width: 100%;
+
+        h3 {
+          mix-blend-mode: difference;
+          font-size: 5rem;
+        }
+      }
+    }
+
+    &__pagination {
+      mix-blend-mode: difference;
+      &__page {
+        width: 20vw;
+        border-radius: 10px;
+        background-color: rgba($color_prime, 0.5);
+
+        &.is-active {
+          transform: scale(1);
+          width: 20vw;
+          border-radius: 50px;
+          background-color: $color_prime;
+        }
+      }
+    }
+  }
+}
+.splide__arrow {
+  @apply opacity-0 hover:opacity-50 text-xs transition-all duration-500 rounded backdrop-blur-sm text-slate-800 bg-slate-300;
+
+  &.splide__arrow- {
+    &-prev {
+      transform: translateX(-50%);
+    }
+    &-next {
+      transform: translateX(50%);
+    }
+  }
+}
+.orderSlider {
+  &:hover {
+    .splide__arrow {
+      transform: translateX(0) !important;
+      @apply opacity-30;
+    }
+  }
+}
+.sectionSplide {
+  .splide {
+    &__pagination {
+      mix-blend-mode: difference;
+      top: 30%;
+      &__page {
+        width: 15vw;
+        border-radius: 10px;
+        background-color: rgba($color_prime, 0.5);
+
+        &.is-active {
+          transform: scale(1);
+          border-radius: 50px;
+          background-color: $color_prime;
+        }
+      }
+    }
+  }
+}
+.vehicles {
+  &-section {
+    height: 45vh;
+    min-height: 100px;
+    max-height: 200px;
+    transition: all 0.5s;
+    position: relative;
+
+    div {
+      @include backgroundGradient(0.4);
+    }
+
+    p {
+      text-wrap: nowrap;
+      position: absolute;
+      top: 40%;
+      opacity: 0;
+      margin-top: 10px;
+      transition: all 0.7s;
+    }
+
+    &:hover {
+      min-height: 50vh;
+
+      p {
+        opacity: 1;
+        top: 60%;
+      }
+    }
+  }
+}
+.mars {
+  animation: planetRase 5s linear 2s infinite alternate;
+
+  @keyframes planetRase {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-30px);
+    }
+  }
+}
+#learn {
+  .splide__slide {
+    padding: 0;
+  }
+}
+.safemark div {
+  @apply absolute size-full inset-0 text-slate-50;
+  &::after {
+    @apply absolute block content-[""] w-[2px] h-[12vw] bg-slate-50;
+  }
+  &::before {
+    @apply absolute block content-[""] w-[6px] h-[6px] rounded-full ring-2 ring-slate-50 bg-slate-950;
+  }
+  span {
+    @apply absolute;
+  }
+  &:nth-child(2) {
+    &::after {
+      top: 30%;
+      left: 28%;
+    }
+    &::before {
+      top: calc(30% + 12vw);
+      left: calc(28% - 2px);
+    }
+    span {
+      top: calc(30% - 30px);
+      left: calc(28% - 2px);
+    }
+  }
+  &:nth-child(3) {
+    &::after {
+      top: 15%;
+      left: 39%;
+    }
+    &::before {
+      top: calc(15% + 12vw);
+      left: calc(39% - 2px);
+    }
+    span {
+      top: calc(15% - 30px);
+      left: calc(39% - 2px);
+    }
+  }
+  &:nth-child(4) {
+    &::after {
+      top: 63%;
+      left: 39%;
+    }
+    &::before {
+      top: calc(63% - 6px);
+      left: calc(39% - 2px);
+    }
+    span {
+      top: calc(63% + 12vw);
+      left: calc(39% - 2px);
+    }
+  }
+  &.safemark-dark {
+    span {
+      @apply text-slate-950;
+    }
+    &::after {
+      @apply bg-slate-950;
+    }
+    &::before {
+      @apply ring-slate-950 bg-slate-50;
+    }
+  }
+}
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+  will-change: opacity, visibility;
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+}
+.slightHidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s;
+}
